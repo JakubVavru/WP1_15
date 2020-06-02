@@ -5,7 +5,13 @@ $ham = filter_input(INPUT_POST, 'ham');
 $fefe = filter_input(INPUT_POST, 'fefe');
 $fich = filter_input(INPUT_POST, 'fish');
 $cheese = filter_input(INPUT_POST, 'cheese');
-var_dump($submit);
+$tomato = filter_input(INPUT_POST, 'tomato');
+$mushrom = filter_input(INPUT_POST, 'mushrom');
+$pine = filter_input(INPUT_POST, 'pine');
+$salami = filter_input(INPUT_POST, 'salami');
+$sea = filter_input(INPUT_POST, 'sea');
+$chick = filter_input(INPUT_POST, 'chick');
+$corn = filter_input(INPUT_POST, 'corn');
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -15,11 +21,13 @@ var_dump($submit);
     <title>Document</title>
 </head>
 <body>
-    <?php
-        if (isset($submit)) { ?>
-        Děkujeme za objednávku </br>
-        Vaše pizza bude s:
-
+<?php
+   
+    if(isset($submit)) { ?>
+ 
+        <h2>Potvrzení objednávky</h2>
+        <p>Děkujeme za vaši objednávku, kterou vám odvezeme co nejdříve.</p>
+        <p>Objednal jste si pizzu s:</p>
         <p><?= $dough ?> těsto</p>
         <?php 
         if(isset($cheese)) { ?>
@@ -28,19 +36,59 @@ var_dump($submit);
         if(isset($ham)) { ?>
             <p>se šunkou</p>
         <?php } 
-          
+        
+        ?>
+        <?php 
         if(isset($fefe)) { ?>
             <p>s feferonkami</p>
-        <?php }
-        if(isset($fish)) { ?>
+        <?php } 
+
+        if(isset($fich)) { ?>
             <p>s rybištou</p>
-        <?php }
+        <?php } 
+        
+        ?>
+        <?php 
+        if(isset($tomato)) { ?>
+            <p>s rajčetem</p>
+        <?php } 
+        if(isset($mushrom)) { ?>
+            <p>s houbamy</p>
+        <?php } 
+        
+        ?>
+        <?php 
+        if(isset($pine)) { ?>
+            <p>s peklem</p>
+        <?php } 
 
+        if(isset($salami)) { ?>
+            <p>se salámem</p>
+        <?php } ?>
 
+        <?php  
+        if(isset($sea)) { ?>
+            <p>s mořskými plody</p>
+        <?php } 
+        
+        ?>
+        <?php 
+        if(isset($chick)) { ?>
+            <p>s kousky kuřete</p>
+        <?php } 
 
+        if(isset($corn)) { ?>
+            <p>s kukuřicí</p>
+        <?php } 
+        
+        ?>        
+
+        
+
+        <?php
         }   else { ?>
             
-            <form action="index.php">
+            <form action="index.php" method="post">
         <h2>Typ těsta</h2>
         <input type="radio" name="dough" id="normal" value="normal">
         <label for="normal">Normální</label></br>
@@ -61,6 +109,27 @@ var_dump($submit);
         
         <input type="checkbox" name="cheese" id="cheese">
         <label for="cheese">Sýr</label></br>
+
+        <input type="checkbox" name="tomato" id="tomato">
+        <label for="tomato">Rajče</label></br>
+        
+        <input type="checkbox" name="mushrom" id="mushrom">
+        <label for="mushrom">Houby</label></br>        
+        
+        <input type="checkbox" name="pine" id="pine">
+        <label for="pine">Ananas (jako vážně?!)</label></br>       
+        
+        <input type="checkbox" name="salami" id="salami">
+        <label for="salami">Salám</label></br>
+
+        <input type="checkbox" name="sea" id="sea">
+        <label for="sea">Mořský plody</label></br>        
+        
+        <input type="checkbox" name="chick" id="chick">
+        <label for="chick">Kuře</label></br>       
+        
+        <input type="checkbox" name="corn" id="corn">
+        <label for="corn">Kukuřice</label></br>
 
         <input type="submit" name="submit" value="Odeslat">
     </form>
